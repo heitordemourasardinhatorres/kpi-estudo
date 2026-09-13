@@ -1,0 +1,47 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #071417;
+  --bg-elev: #0e2126;
+  --surface: #12292f;
+  --surface-2: #17333a;
+  --border: #1e3b43;
+  --border-strong: #2c545e;
+
+  --text: #e6f3f5;
+  --text-dim: #8faab0;
+  --text-faint: #5d777d;
+
+  --brand: #1094ab;
+  --brand-bright: #3fc3da;
+  --brand-soft: #64c4d2;
+  --on-brand: #04181d;
+  --accent: #fcb421;
+
+  /* status: reservados para estado (bom/ruim/atenção), nunca para série de gráfico */
+  --acerto: #34b37e;
+  --erro: #e66767;
+  --duvida: #e0a83c;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s7: 32px;
+  --s8: 40px;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.25);
+  --ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--brand-bright);
+
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', var(--font-ui);
+
+  --sidebar-w: 232px;
+  --tabbar-h: 62px;
+}

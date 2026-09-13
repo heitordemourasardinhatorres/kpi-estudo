@@ -1,14 +1,30 @@
 {
   "name": "kpi-estudo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Juju na Aprovação — acompanhamento de simulados e listas de questões",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "animejs": "^4.5.0",
+    "echarts": "^6.1.0",
+    "pinia": "^4.0.3",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "vue": "^3.5.42",
+    "vue-echarts": "^8.3.0",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.8",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.0",
+    "vue-tsc": "^3.3.11"
+  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -16,6 +32,5 @@
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@12.4.1",
-  "type": "module"
+  "packageManager": "pnpm@12.4.1"
 }
