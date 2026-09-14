@@ -2,13 +2,12 @@
 import { animate } from 'animejs'
 import BaseIcon from '@/components/base/BaseIcon.vue'
 import { useToast } from '@/composables/useToast'
+import { prefereMovimentoReduzido } from '@/lib/movimento'
 
 const { toasts, dispensar } = useToast()
 
-const reduzida = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 function entrar(el: Element, done: () => void): void {
-  if (reduzida()) return done()
+  if (prefereMovimentoReduzido()) return done()
   animate(el, {
     opacity: [0, 1],
     translateY: [10, 0],
@@ -20,7 +19,7 @@ function entrar(el: Element, done: () => void): void {
 }
 
 function sair(el: Element, done: () => void): void {
-  if (reduzida()) return done()
+  if (prefereMovimentoReduzido()) return done()
   animate(el, {
     opacity: [1, 0],
     scale: [1, 0.94],

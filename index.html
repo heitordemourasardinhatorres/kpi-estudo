@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="splash-ativo">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -13,9 +13,121 @@
       rel="stylesheet"
     />
     <title>Juju na Aprovação</title>
+    <style>
+      /* CSS crítico da splash: pinta antes do bundle. Hex espelham src/styles/tokens.css
+         (--bg, --bg-elev, --border, --text-dim, --brand-soft, --accent). */
+      html {
+        background: #071417;
+        color-scheme: dark;
+        scrollbar-gutter: stable;
+      }
+
+      html.splash-ativo {
+        overflow: hidden;
+      }
+
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #071417;
+      }
+
+      .splash-centro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        text-align: center;
+      }
+
+      .splash-logo {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        opacity: 0;
+      }
+
+      .splash-logo::before {
+        content: '';
+        position: absolute;
+        inset: -40px;
+        z-index: -1;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgb(16 148 171 / 0.22), transparent);
+      }
+
+      .splash-logo svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .splash-texto {
+        margin: 0;
+        max-width: 28ch;
+        font-family: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.005em;
+        color: #8faab0;
+        opacity: 0;
+      }
+
+      @media (max-width: 600px) {
+        .splash-logo {
+          width: 72px;
+          height: 72px;
+        }
+
+        .splash-texto {
+          font-size: 0.98rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .splash-logo,
+        .splash-texto {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="splash" aria-hidden="true">
+      <div class="splash-centro">
+        <div class="splash-logo">
+          <svg viewBox="0 0 64 64" focusable="false">
+            <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" fill="#0e2126" stroke="#1e3b43" />
+            <path
+              class="traco-j"
+              d="M14 44h6M20 44V20"
+              fill="none"
+              stroke="#64c4d2"
+              stroke-width="6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              class="traco-linha"
+              d="M30 40l8-10 6 6 10-16"
+              fill="none"
+              stroke="#fcb421"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <p class="splash-texto">rumo aos sonhos, você consegue tudo!!</p>
+      </div>
+    </div>
+    <noscript><style>#splash { display: none; }</style></noscript>
+    <div id="app" aria-busy="true"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

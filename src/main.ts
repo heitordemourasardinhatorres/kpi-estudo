@@ -2,9 +2,12 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from '@/App.vue'
+import { encerrarSplash, iniciarSplash } from '@/lib/splash'
 import router from '@/router'
 import '@/styles/tokens.css'
 import '@/styles/base.css'
+
+iniciarSplash()
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
@@ -24,3 +27,4 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has('demo')) {
 }
 
 app.mount('#app')
+void encerrarSplash(router.isReady())
